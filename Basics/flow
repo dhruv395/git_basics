@@ -1,0 +1,132 @@
+basic workflow of Git. 
+
+Step 1 : You modify a file from the working directory. 
+Step 2 : You add these files to the staging area. 
+Step 3 : You perform commit operation that moves the files from the staging area.  
+After push operation, it stores the changes permanently to the Git repository.  
+
+Blobs (Binary Large Object) 
+
+--------------------------- 
+
+Each version of a file is represented by blob 
+
+A blob holds the file data but doesn't contain the metadata. 
+
+it is a binary file , and in git databases, it is named as SHA1 hash of that file. 
+
+in git, files are not addressed by names, everything is content addressed. 
+
+ 
+
+Trees 
+
+----------- 
+
+Tree is an object, which represents a directory.  
+
+It holds blobs as well as other sub-directories.  
+
+A tree is a binary file that stores references to blobs and trees which are also named as SHA1 hash of the tree object. 
+
+ 
+
+Commits 
+
+------- 
+
+ 
+
+Commit holds the current state of the repository 
+
+A commit is also named by SHA1 hash 
+
+Every commit object has a pointer to the parent commit object 
+
+From a given commit, you can traverse back by looking at the parent pointer to view the history of the commit 
+
+If a commit has multiple parent commits, then that particular commit has been created by merging two branches. 
+
+ 
+
+Branches 
+
+----------- 
+
+ 
+
+Branches are used to create another line of development 
+
+By default, Git has a master branch, which is same as trunk in Subversion 
+
+Usually, a branch is created to work on a new feature 
+
+Once the feature is completed, it is merged back with the master branch and we delete the branch 
+
+Every branch is referenced by HEAD, which points to the latest commit in the branch 
+
+Whenever you make a commit, HEAD is updated with the latest commit 
+
+ 
+
+Clone 
+
+----- 
+
+Clone operation creates the instance of the repository.  
+
+Clone operation not only checks out the working copy, but it also mirrors the complete repository.  
+
+Users can perform many operations with this local repository.  
+
+The only time networking gets involved is when the repository instances are being synchronized. 
+
+ 
+
+Pull 
+
+------- 
+
+Pull operation copies the changes from a remote repository instance to a local one.  
+
+The pull operation is used for synchronization between two repository instances.  
+
+ 
+
+ 
+
+Push 
+
+-------- 
+
+Push operation copies changes from a local repository instance to a remote one. 
+
+This is used to store the changes permanently into the Git repository.  
+
+ 
+
+HEAD 
+
+-------- 
+
+HEAD is a pointer, which always points to the latest commit in the branch.  
+
+Whenever you make a commit, HEAD is updated with the latest commit.  
+
+The heads of the branches are stored in .git/refs/heads/ directory. 
+
+ 
+
+ 
+
+Add a file into staging area : #git add <file_name> 
+
+Commint a file : #git commit -m "Comment"  
+
+To unstage a file : #git rm --cached <file_name> 
+
+Configure name: #git config  --global  user.name <user_name> 
+
+Configure email : #git config --global user.email  <email_id> 
+
+ 
